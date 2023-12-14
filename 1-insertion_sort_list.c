@@ -13,20 +13,16 @@ void insertion_sort_list(listint_t **list)
 	/* Error handling: make sure list is not NULL */
 	if (list == NULL || *list == NULL)
 		return;
-
 	/* let head point to the head of the linked list */
 	head = *list;
 
 	/* temp should point to the first element in the unsorted sublist */
 	temp = head->next;
-	
 	/* loop through the unsorted sublist */
 	while (temp != NULL)
 	{
-
 		/* j points to the element behind temp and compares them */
 		j = temp->prev;
-
 		/* insert current element into it's position in the sorted sublist */
 		while (j != NULL && j->n > temp->n)
 		{
