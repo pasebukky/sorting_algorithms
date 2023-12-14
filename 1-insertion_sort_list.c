@@ -1,48 +1,55 @@
 #include "sort.h"
 /**
-* main - entry point
-* @n: number..
+* insertion_sort_list - a function that sorts a doubly linked list
+* of integers in ascending order using the Insertion sort algorithm
 *
-* Description: a function that prints the alphabet
-* Return: 0 (success)
+* @list: a pointer to a pointer that holds the address of a linked list
 */
 
-void insertion_sort_list(listint_t **list) {
-    listint_t *head, *temp, *j;
+void insertion_sort_list(listint_t **list)
+{
+	listint_t *head, *temp, *j;
 
-    if (list == NULL || *list == NULL) {
-        return;
-    }
+	/* Error handling: make sure list is not NULL */
+	if (list == NULL || *list == NULL)
+		return;
 
-    head = *list;
-    temp = head->next;
+	/* let head point to the head of the linked list */
+	head = *list;
 
-    while (temp != NULL) {
-        j = temp->prev;
+	/* temp should point to the first element in the unsorted sublist */
+	temp = head->next;
+	
+	/* loop through the unsorted sublist */
+	while (temp != NULL)
+	{
 
-        while (j != NULL && j->n > temp->n) {
-            j->next = temp->next;
+		/* j points to the element behind temp and compares them */
+		j = temp->prev;
 
-            if (temp->next != NULL) {
-                temp->next->prev = j;
-            }
+		/* insert current element into it's position in the sorted sublist */
+		while (j != NULL && j->n > temp->n)
+		{
+			/* swap temp with j */
+			j->next = temp->next;
 
-            temp->prev = j->prev;
-            temp->next = j;
+			if (temp->next != NULL)
+				temp->next->prev = j;
 
-            if (j->prev != NULL) {
-                j->prev->next = temp;
-            } else {
-                head = temp;
-            }
+			temp->prev = j->prev;
+			temp->next = j;
 
-            j->prev = temp;
+			if (j->prev != NULL)
+				j->prev->next = temp;
+			else
+				head = temp;
 
-            j = temp->prev;
-        }
-
-        temp = temp->next;
-    }
-
-    *list = head;
+			j->prev = temp;
+			j = temp->prev;
+			*list = head;
+			print_list(*list);
+		}
+		/* move to the next element in the unsorted sublist */
+		temp = temp->next;
+	}
 }
