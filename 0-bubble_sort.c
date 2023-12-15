@@ -14,6 +14,9 @@ void bubble_sort(int *array, size_t size)
 	int temp;
 	bool bubbled;
 
+	if (array == NULL || size <= 1)
+		return;
+
 	/* an outer loop for passes/rounds of bubbling */
 	for (i = 0; i < (size - 1); i++)
 	{
