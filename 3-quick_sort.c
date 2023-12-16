@@ -40,28 +40,32 @@ size_t lomuto(int *array, size_t low, size_t high, size_t size)
 int pivot;
 size_t i, j;
 
-pivot = array[high]; /* Use last element as pivot */
-i = low; /* Initialize i to index of smaller element */
+pivot = array[high];
+i = low - 1; /* Initialize i to the index before low */
 
 /* Loop through the partition */
 for (j = low; j <= high - 1; j++)
 {
-	/* Check if the current element is <= to the pivot */
 	if (array[j] <= pivot)
 	{
-		if (i != j) /* Swap elements if they are different */
+		/* Increment if the current element is <= the pivot */
+		i++;
+		if (i != j) /* Otherwise, swap elements */
 		{
 			swap(&array[i], &array[j]);
 			print_array(array, size);
 		}
-		i++; /* Increment along the array */
 	}
 }
 /* Swap pivot element into the correct position */
-swap(&array[i], &array[high]);
-print_array(array, size);
-return (i); /* Return index of the pivot */
+if (i + 1 != high)
+{
+	swap(&array[i + 1], &array[high]);
+	print_array(array, size);
 }
+return (i + 1); /* Return index of the pivot */
+}
+
 
 
 
