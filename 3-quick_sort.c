@@ -1,29 +1,6 @@
 #include "sort.h"
 
 /**
- * swap - swaps two integers
- *
- * @a: First integer
- * @b: Second integer
- *
- */
-
-void swap(int *a, int *b)
-{
-int temp;
-
-temp = *a;
-*a = *b;
-*b = temp;
-}
-
-
-
-
-
-
-
-/**
  * lomuto - partitions arrays using pivot method
  *
  * @array: the array of elements
