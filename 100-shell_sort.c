@@ -58,7 +58,7 @@ void shell_sort(int *array, size_t size)
 		}
 		/* decrement gap for next round */
 		gap = (gap - 1) / 3;
-		
+
 		if (flag)
 			print_array(array, size);
 	}
