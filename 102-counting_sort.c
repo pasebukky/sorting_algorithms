@@ -123,7 +123,6 @@ sum_position = malloc(sizeof(int) * (max_value + 1));
 if (!sum_position)
 {
 	free(position);
-	return;
 }
 initialize_array(sum_position, max_value + 1);
 count_occurrences(arr, size, position);
@@ -134,7 +133,6 @@ if (!sorted)
 {
 	free(position);
 	free(sum_position);
-	return;
 }
 initialize_array(sorted, size);
 build_sorted_array(arr, size, sum_position, sorted);
