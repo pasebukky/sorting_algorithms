@@ -109,13 +109,11 @@ size_t i;
 if (size < 2)
 	return;
 
-/* Find the maximum value in the array */
 for (i = 0; i < size; i++)
 {
 	if (arr[i] > max_value)
 		max_value = arr[i];
 }
-/*  Allocate memory for counting and sum_position arrays */
 position = malloc(sizeof(int) * (max_value + 1));
 if (!position)
 	return;
@@ -128,17 +126,9 @@ if (!sum_position)
 	return;
 }
 initialize_array(sum_position, max_value + 1);
-
-/* Count occurrences of each element in the array */
-    count_occurrences(arr, size, position);
-
-/* Calculate the cumulative sum of counts */
+count_occurrences(arr, size, position);
 calculate_cumulative_sum(position, max_value + 1, sum_position);
-
-/* Print the intermediate array */
 print_array(sum_position, max_value + 1);
-
-/* Allocate memory for the sorted array */
 sorted = malloc(sizeof(int) * size);
 if (!sorted)
 {
@@ -147,15 +137,9 @@ if (!sorted)
 	return;
 }
 initialize_array(sorted, size);
-
-/* Build the sorted array using sum_position */
 build_sorted_array(arr, size, sum_position, sorted);
-
-/* Copy the sorted array back to the original array */
 for (i = 0; i < size; i++)
 	arr[i] = sorted[i];
-
-/* Free allocated memory */
 free(position);
 free(sum_position);
 free(sorted);
