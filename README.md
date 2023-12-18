@@ -2,8 +2,8 @@ This repository contains the solution to the ALX group project 0x1B. C - Sorting
 
 
 ## Contributors ##
-1. Nuru Ahmed
-2. Bukky Pase
+1. [Nuru Ahmed](x.com/0xNuru)
+2. [Bukky Pase](https://github.com/pasebukky)
 
 Below are the tasks:
 
