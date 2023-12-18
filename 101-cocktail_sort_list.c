@@ -12,7 +12,7 @@
 
 void swap_nodes(listint_t **list, listint_t *first, listint_t *second)
 {
-if (first == NULL ||  second == NULL)
+if (list == NULL || first == NULL || second == NULL)
 	return;
 /* If first node is NULL, make second the head of the list */
 if (first->prev == NULL)
@@ -50,7 +50,6 @@ listint_t *current;
 if (list  == NULL || *list == NULL)
 	return;
 
-/*  Forward pass */
 for (current = *list; current->next; current = current->next)
 {
 	if (current->n > current->next->n)
@@ -62,7 +61,6 @@ for (current = *list; current->next; current = current->next)
 	}
 }
 
-/* Backward pass */
 for (current = *list; current->prev; current = current->prev)
 {
 	if (current->n < current->prev->n)
