@@ -52,6 +52,10 @@ void merge_sort(int *array, size_t size);
 void sift_down(int *array, size_t size, size_t start, size_t end);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
+void swap_nodes(listint_t **list, listint_t *first, listint_t *second);
+void cocktail_sort_list(listint_t **list);
+
+
 
 
 
