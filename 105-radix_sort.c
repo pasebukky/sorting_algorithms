@@ -77,6 +77,9 @@ void radix_sort(int *array, size_t size)
 {
 	int max, place_val;
 
+	if (!array)
+		return;
+
 	max = get_max(array, size);
 
 	/* loop through all the place values in max */
