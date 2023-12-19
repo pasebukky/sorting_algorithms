@@ -70,7 +70,7 @@ do {
 		break;
 
 	swap = 0;
-	current = *list;
+	current = current->prev;
 	do {
 		if (current->n < current->prev->n)
 		{
