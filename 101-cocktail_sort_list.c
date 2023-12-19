@@ -46,29 +46,41 @@ second->next = first;
 void cocktail_sort_list(listint_t **list)
 {
 listint_t *current;
+int swap = 1;
 
-if (list  == NULL || *list == NULL || (*list)->next == NULL)
+if (list == NULL || *list == NULL)
 	return;
 
-for (current = *list; current->next; current = current->next)
-{
-	if (current->n > current->next->n)
-	{
-		swap_nodes(list, current, current->next);
-		print_list(*list);
-		cocktail_sort_list(list);
-		return;
-	}
-}
+do {
+	swap = 0;
+	current = *list;
 
-for (current = *list; current->prev; current = current->prev)
-{
-	if (current->n < current->prev->n)
+	while (current->next)
 	{
-		swap_nodes(list, current->prev, current);
-		print_list(*list);
-		cocktail_sort_list(list);
-		return;
+		if (current->n > current->next->n)
+		{
+			swap_nodes(list, current, current->next);
+			print_list(*list);
+			swap = 1;
+			continue;
+		}
+		current = current->next;
 	}
-}
+	if (!swap)
+		break;
+
+	swap = 0;
+	current = current->prev;
+	do {
+		if (current->n < current->prev->n)
+		{
+			swap_nodes(list, current->prev, current);
+			print_list(*list);
+			swap = 1;
+			continue;
+		}
+		current = current->prev;
+	} while (current->prev);
+
+} while (swap);
 }
