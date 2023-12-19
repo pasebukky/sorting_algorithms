@@ -80,7 +80,7 @@ do {
 			continue;
 		}
 		current = current->prev;
-	} while (current->prev);
+	} while (current && current->prev);
 
 } while (swap);
 }
