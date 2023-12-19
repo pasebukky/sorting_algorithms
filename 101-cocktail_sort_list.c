@@ -12,8 +12,8 @@
 
 void swap_nodes(listint_t **list, listint_t *first, listint_t *second)
 {
-/* if (list == NULL || first == NULL || second == NULL)
-	return;*/
+if (list == NULL || first == NULL || second == NULL)
+	return;
 /* If first node is NULL, make second the head of the list */
 if (first->prev == NULL)
 	*list = second;
